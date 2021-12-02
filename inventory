@@ -1,4 +1,22 @@
 workstation ansible_connection=local
 
+host1 ansible_host=ansible-user-01-i-01.none.commandemy.training
+host2 ansible_host=ansible-user-01-i-02.none.commandemy.training
+host3 ansible_host=ansible-user-01-i-03.none.commandemy.training
+
+[loadbalancers]
+host3
+
+[hosts]
+host1
+host2
+host3
+
+[webservers]
+host1
+host2
+
 [servers]
-server1 ansible_host=host.ansible-user-<your-user>-i-01.<prefix>.commandemy.training
+host1
+
+

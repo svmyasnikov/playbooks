@@ -1,5 +1,12 @@
 # playbooks
 
+## before bonus branch
+
+Steps to do after cloning this repo:
+
+- configure hosts in inventory
+- `ansible-galaxy install -r requirements.yml` if haproxy role is not installed already
+
 ## install ansible
 
 ### install ansible by pip within a python virtualenv
