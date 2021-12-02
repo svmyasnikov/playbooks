@@ -1,0 +1,21 @@
+---
+
+- hosts: webservers
+
+- hosts: loadbalancers
+  become_user: root
+  become: yes
+  pre_tasks:
+
+  - name: update package list
+    ansible.builtin.apt:
+      update_cache: yes
+
+  roles:
+  - role: geerlingguy.haproxy
+    haproxy_version: "{{ '1.4' if '1.4.' in haproxy_version_result.stdout else '1.5' }}"
+    haproxy_backend_servers:
+      - name: web1
+        address: "{{ hostvars['host1'].ansible_eth1.ipv4.address }}:80"
+      - name: web2
+        address: "{{ hostvars['host2'].ansible_eth1.ipv4.address }}:80"

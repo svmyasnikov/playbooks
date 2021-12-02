@@ -4,6 +4,9 @@ host1 ansible_host=192.168.1.107
 host2 ansible_host=192.168.1.108
 host3 ansible_host=192.168.1.109
 
+[loadbalancers]
+host3
+
 [hosts]
 host1
 host2
