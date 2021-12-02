@@ -1,0 +1,22 @@
+- name: install Apache
+  apt: name=apache2 update_cache=yes state=latest
+- name: ensure Apache is running
+  service: name=apache2 state=started enabled=yes
+- name: capture output of id command
+  command: id -un
+  register: login
+- name: create website file
+  copy:
+    dest: "/var/www/html/index.html"
+    content: |
+      Hello World!
+      from {{ login.stdout }}@{{ansible_default_ipv4.address}}
+
+      This is from the group var: {{my_group_var}}
+      This is from the host var: {{detail}}
+- name: set permissions
+  file:
+    path: "/var/www"
+    state: directory
+    recurse: yes
+    mode: '0755'

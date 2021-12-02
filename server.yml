@@ -1,8 +1,7 @@
 ---
 - name: install the latest version of Apache
-  hosts: servers
+  hosts: webservers
   become_user: root
   become: yes
   tasks:
-  - name: install Apache
-    apt: name=apache2 update_cache=yes state=latest
+  - import_tasks: tasks/server_tasks.yml
