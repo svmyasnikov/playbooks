@@ -2,7 +2,11 @@
 
 ## before bonus branch
 
-Steps to do after cloning this repo:
+### Status
+
+State of repo: 07 - Ansible Galaxy and Roles done, without Collections
+
+### Steps to do after cloning this repo
 
 - configure hosts in inventory
 - `ansible-galaxy install -r requirements.yml` if haproxy role is not installed already
