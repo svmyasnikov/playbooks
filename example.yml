@@ -1,6 +1,6 @@
 ---
 - name: ping workstation
-  hosts: workstation
+  hosts: [ workstation, servers ]
   become_user: root
   become: yes
   tasks:

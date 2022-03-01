@@ -1,0 +1,13 @@
+---
+- name: Create File
+  hosts: servers
+  become_user: root
+  become: yes
+  tasks:
+  - name: Create hello world file with content
+    ansible.builtin.copy:
+      dest: "/hello_world.txt"
+      mode: 0640
+      owner: coder
+      group: coder
+      content: Hello World!

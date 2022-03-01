@@ -1,4 +1,17 @@
 workstation ansible_connection=local
 
+host1 ansible_host=host.ansible-user-04-i-01.squirrel.commandemy.training
+host2 ansible_host=host.ansible-user-04-i-02.squirrel.commandemy.training
+host3 ansible_host=host.ansible-user-04-i-03.squirrel.commandemy.training
+
 [servers]
-server1 ansible_host=host.ansible-user-<your-user>-i-01.<prefix>.commandemy.training
+host1
+
+[hosts]
+host1
+host2
+host3
+
+[webservers]
+host1
+host2

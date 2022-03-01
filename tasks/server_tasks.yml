@@ -1,0 +1,24 @@
+---
+- name: install Apache
+  ansible.builtin.apt:
+    name: apache2
+    update_cache: yes
+    state: latest
+- name: ensure Apache is running
+  ansible.builtin.service:
+    name: apache2
+    state: started
+    enabled: yes
+- name: capture output of id command
+  ansible.builtin.command: id -un
+  register: login
+- name: create website file
+  ansible.builtin.copy:
+    dest: "/var/www/html/index.html"
+    content: "Hello World! from {{ login.stdout }}@{{ansible_default_ipv4.address}}"
+- name: set permissions
+  ansible.builtin.file:
+    path: "/var/www"
+    state: directory
+    recurse: yes
+    mode: '0755'
