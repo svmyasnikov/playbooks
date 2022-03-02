@@ -1,0 +1,10 @@
+---
+- hosts: workstation
+  vars:
+    variable_to_be_replaced: 'Hello world'
+    inline_variable: 'hello again'
+  tasks:
+  - name: Ansible Template Example
+    ansible.builtin.template:
+      src: hello_world.txt.j2
+      dest: /tmp/hello_world.txt

@@ -1,0 +1,9 @@
+---
+- hosts: workstation
+  vars:
+    list: ['Template iterate','Template loop','Template item']
+  tasks:
+    - name: Ansible template loop example.
+      ansible.builtin.template:
+        src: list.txt.j2
+        dest: /tmp/list.txt

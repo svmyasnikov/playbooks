@@ -1,0 +1,8 @@
+---
+- name: install the latest version of Apache
+  hosts: webservers
+  become_user: root
+  become: yes
+  roles:
+  - webserver
+  
