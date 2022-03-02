@@ -1,7 +1,7 @@
 ---
-- name: Create hello world file with content
-  ansible.builtin.copy:
-    dest: "/hello_world.txt"
-    content: Hello World!
-    mode: 0640
-    owner: coder
+- name: Create hello.txt file
+  ansible.builtin.template:
+    dest: /tmp/hello.txt
+    src: hello.txt.j2
+    # mode: 0640
+    # owner: coder

@@ -15,3 +15,6 @@ host3
 [webservers]
 host1
 host2
+
+[loadbalancers]
+host3

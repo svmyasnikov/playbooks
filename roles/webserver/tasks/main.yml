@@ -13,14 +13,9 @@
   ansible.builtin.command: id -un
   register: login
 - name: create website file
-  ansible.builtin.copy:
+  ansible.builtin.template:
     dest: "/var/www/html/index.html"
-    content: |
-      Hello World!
-      from {{ login.stdout }}@{{ansible_default_ipv4.address}}
-
-      This is from the group var: {{my_group_var}}
-      This is from the host var: {{detail}}
+    src: "index.html.j2"
 - name: set permissions
   ansible.builtin.file:
     path: "/var/www"
